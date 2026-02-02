@@ -134,9 +134,21 @@
     Карточки товаров оторваны от элементов управления.
 
 - summary: |
+    11. Окно оплаты не закрывается по клику на крестик.
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить товар в корзину
+    5. Перейти в корзину.
+    3. Нажать на "Checkout" - открылось всплывающее окно
+    4. Нажать на крестик
+  expected-result: |
+    Всплывающее окно закрыто.
+  actual-result: |
+    Кнопка некликабельна
 
 - summary: |
-    11. Сайт не адаптирован для планшетов.
+    12. Сайт не адаптирован для планшетов.
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
