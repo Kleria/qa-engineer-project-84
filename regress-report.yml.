@@ -117,7 +117,7 @@ bugreports:
   - summary: |
        Скрыто меню фильтров для мобилок
     environment: |
-      Ссылка на билд/коммит/версия ПО и всего окружения
+      https://products-store-v2.hexlet.app/
     steps-to-reproduce: |
        1. Открыть девтулз.
       2. На вкладке Network в меню Toggle Device Toolbar выбрать одно из мобильных устройств (Iphone SE, Iphone 12 Pro, Samsung Galaxy S20)
@@ -130,7 +130,7 @@ bugreports:
   - summary: |
        В корзине едет верстка для мобилок
     environment: |
-      Ссылка на билд/коммит/версия ПО и всего окружения
+      https://products-store-v2.hexlet.app/
     steps-to-reproduce: |
       1. Открыть девтулз.
       2. На вкладке Network в меню Toggle Device Toolbar выбрать одно из мобильных устройств (Iphone SE, Iphone 12 Pro, Samsung Galaxy S20)
@@ -146,7 +146,7 @@ bugreports:
   - summary: |
        В категориях есть кнопка без текста
     environment: |
-      Ссылка на билд/коммит/версия ПО и всего окружения
+      https://products-store-v2.hexlet.app/
     steps-to-reproduce: |
       1. Открыть магазин.
       2. Открыть выпадабщий список "Категории" в фильтрах.
@@ -158,7 +158,7 @@ bugreports:
   - summary: |
        В категориях есть кнопка без текста
     environment: |
-      Ссылка на билд/коммит/версия ПО и всего окружения
+      https://products-store-v2.hexlet.app/
     steps-to-reproduce: |
       1. Открыть магазин.
       2. Открыть выпадабщий список "Категории" в фильтрах.
@@ -170,7 +170,7 @@ bugreports:
   - summary: |
        При выборе кнопки без текста на фильтрах по категориям пропадают кнопки навигации
     environment: |
-      Ссылка на билд/коммит/версия ПО и всего окружения
+      https://products-store-v2.hexlet.app/
     steps-to-reproduce: |
       1. Открыть магазин.
       2. Открыть выпадабщий список "Категории" в фильтрах.
