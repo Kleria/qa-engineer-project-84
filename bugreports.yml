@@ -1,10 +1,82 @@
-  - summary: |
-   Переключение языка интерфейса
-    status: fail
+- summary: |
+    Не указан путь до иконки с британским флагом в выпадушке для переключения языков
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. В шапке нажать на кнопку ¨Language¨.
+  expected-result: |
+    Открыт выпадающий список.
+    У всех языков из списка есть иконка страны.
+  actual-result: |
+    У всех английского языка нет иконки страны - на вкладке Elements для элемента не указан источник загрузки изображения.
+
 
 - summary: |
-    Безопасный выход из системы
-    status: fail
+    Отуствует возможность авторизации и выхода из учетки
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Открыть магазин
+    2. Залогиниться под корректными тестовыми данными
+  expected-result: |
+    Происходит авторизация и аутентификация клиента
+  actual-result: |
+    Функциональность логина\разлогина не добавлена
+
+- summary: |
+    Для русской и испанской версий отстуствует описание продуктов на нужных языка.
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Открыть магазин
+    2. Выбрать русский язык в выпадающем меню ¨Language¨.
+  expected-result: |
+    Язык интерфейса (меню, кнопки, заголовки) изменился на выбранный.
+  actual-result: |
+    Описание товара в каталоге и карточке товара осталось на английском языке.
+    Для испанского языка - результат аналогичный.
+
+- summary: |
+    Сайт недоступен с выключенным ВНП.
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Почистить кэш и куки
+    2. Удостовериться, что ВНП выключен.
+    3. Открыть магазин
+  expected-result: |
+    Сайт открывается.
+  actual-result: |
+    Не прогружаются ресурсы по адресам https://products-store.hexlet.app/assets/index-DTdTiOSj.js и https://products-store.hexlet.app/assets/index-Bo-UI-tS.css
+
+- summary: |
+    На первой странице каталога отсуствует кнопка "Previous".
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Открыть первую страницу каталога
+  expected-result: |
+    Есть "Next", по клику на которую открывается следующая страница.
+  actual-result: |
+    Есть кнопки "Next" и "Previous".
+    "Previous" кликабельна, но не прогружает никаких элементов.
+
+- summary: |
+    При переходе из корзины в каталог сайт перезагружается.
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Перейти в корзину.
+    2. Из корзины по кнопке "Continue shopping" или "Cart".
+  expected-result: |
+    Возвращаемся в каталог. Страница не перезагружаются.
+  actual-result: |
+    Возвращаемся в каталог.
+    Страница и все элементы перезагружаются. 
+
+- summary: |
+   Фильтры работают корректно
+    status: fail   
 
 - summary: |
     Корректное отображение на мобильных устройствах с разными разрешениями
@@ -12,28 +84,4 @@
 
 - summary: |
     Адаптивность сетки товаров на разных разрешениях
-    status: fail
-
-- summary: |
-    Локализация на русском
-    status: fail
-
-- summary: |
-    Переход на сайт без использования ВПН
-    status: fail
-
-- summary: |
-    Переход на следующую и предыдущую страницы
-    status: fail
-
-- summary: |
-    Локализация на испанском
-    status: fail
-
-- summary: |
-   При навигации по сайту страницы не перезагружаются
     status: fail    
-
-- summary: |
-   Фильтры работают корректно
-    status: fail   
