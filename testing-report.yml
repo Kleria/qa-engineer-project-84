@@ -1,113 +1,113 @@
 ---
 - summary: |
     Поиск товара по ключевому слову
-    status: pass
+  status: pass
 
 - summary: |
      Поиск товара по категории
-     status: pass
+  status: pass
 
-  - summary: |
+- summary: |
     Переход в карточку товара
-    status: pass
+  status: pass
 
-  - summary: |
+- summary: |
     Добавление товара в корзину из каталога
-    status: pass
+  status: pass
 
-  - summary: |
+- summary: |
     Пользователь не должен иметь возможность добавить больше товара, чем есть на складе
-    status: pass
+  status: pass
 
-  - summary: |
+- summary: |
     Добавление товара в корзину из карточки товара
-    status: pass
+  status: pass
 
-  - summary: |
+- summary: |
     Счетчик корзины обновляется в реальном времени
-    status: pass
+  status: pass
 
-  - summary: |
+- summary: |
     Просмотр содержимого в корзине
-    status: pass
+  status: pass
 
-  - summary: |
+- summary: |
    Переключение языка интерфейса
-    status: fail
+  status: fail
 
 - summary: |
     При переключении языка интерфейса добавленные в корзину товары не удаляются
-    status: pass
+  status: pass
 
 - summary: |
     Быстрая загрузка главной страницы
-    status: pass
+  status: pass
 
 - summary: |
     Мгновенная обратная связь при действиях пользователя
-    status: pass
+  status: pass
 
 - summary: |
     Безопасный выход из системы
-    status: fail
+  status: fail
 
 - summary: |
     Корректное отображение на мобильных устройствах с разными разрешениями
-    status: fail
+  status: fail
            
 - summary: |
     Отзывчивость интерфейса при изменении ориентации устройства
-    status: pass
+  status: pass
       
            
 - summary: |
     Адаптивность сетки товаров на разных разрешениях
-    status: fail
+  status: fail
 
 - summary: |
     Совместимость основного функционала с последними версиями браузеров
-    status: pass 
+  status: pass 
 
 - summary: |
     Локализация на русском
-    status: fail
+  status: fail
 
 - summary: |
     Локализация на английском
-    status: pass 
+  status: pass 
 
 - summary: |
     Переход на сайт без использования ВПН
-    status: fail
+  status: fail
 
 - summary: |
     Удаление товара из корзины на странице корзины
-    status: pass
+  status: pass
     
 - summary: |
     Переход на следующую и предыдущую страницы
-    status: fail
+  status: fail
 
 - summary: |
     Локализация на испанском
-    status: fail
+  status: fail
     
 - summary: |
    Расчет и отображение стоимости товара с количеством больше 1
-    status: pass
+  status: pass
 
 - summary: |
    При навигации по сайту страницы не перезагружаются
-    status: fail    
+  status: fail    
 
 - summary: |
    Фильтры работают корректно
-    status: fail    
+  status: fail    
 
 - summary: |
    Все фильтры имеют название
-    status: fail      
+  status: fail      
 
 - summary: |
    В фильтры "Категория" добавлены все категории товаров
-    status: fail        
+  status: fail        
