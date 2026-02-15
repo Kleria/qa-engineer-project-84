@@ -1,6 +1,18 @@
 ---
 - summary: |
-    1. Не указан путь до иконки с британским флагом в выпадушке для переключения языков
+    1. Кликабельная область у товара выходит за границы товара
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Открыть devTools - вкладка Elements 
+    2. Навести курсор на карточку товара    
+  expected-result: |
+    Границы элементов класса text-decoration-none сопадают с визуальными границами карточки
+  actual-result: |
+    Границы элементов класса text-decoration-none НЕ сопадают с визуальными границами карточки (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/area.PNG)
+    
+- summary: |
+    2. Не указан путь до иконки с британским флагом в выпадушке для переключения языков
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -9,7 +21,7 @@
     Открыт выпадающий список.
     У всех языков из списка есть иконка страны.
   actual-result: |
-    У всех английского языка нет иконки страны - на вкладке Elements для элемента не указан источник загрузки изображения.
+    У всех английского языка нет иконки страны - на вкладке Elements для элемента не указан источник загрузки изображения. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/1..PNG, https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/1.1.PNG)
 
 - summary: |
     2. Отуствует возможность авторизации и выхода из учетки
