@@ -238,3 +238,17 @@
   actual-result: |
     Падает 500 ошибка по ресту https://dummyjson.com/http/500/failed (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/500.PNG)
        
+- summary: |
+    18. В поповере оформления заказа едет верстка цены
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить несколько товаров в корзину любым способом
+    2. Перейти в корзину
+    3. Нажать на "Оформить заказ"
+  expected-result: |
+    Появляется поповер
+    Информация совпадает с информацией в заказе
+    Все блоки выровнены относительно друг друга
+  actual-result: |
+    Цена не выровнена (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/pp.PNG)
