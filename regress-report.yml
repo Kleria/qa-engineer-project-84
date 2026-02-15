@@ -10,11 +10,11 @@ test-cases:
 
   - summary: |
      Просмотр информации о товаре в карточке
-  status: pass
+    status: pass
 
   - summary: |
      Просмотр информации о товаре в каталоге
-  status: fail        
+    status: fail        
   
   - summary: |
       Переход в карточку товара
@@ -149,8 +149,8 @@ test-cases:
     status: fail
 
   - summary: |
-   Проверка валидации в поле фильтрации цены
-  status: pass  
+     Проверка валидации в поле фильтрации цены
+    status: pass  
 
 bugreports:
   - summary: |
