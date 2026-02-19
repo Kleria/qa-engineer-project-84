@@ -1,6 +1,58 @@
 ---
 - summary: |
-    1. Кликабельная область у товара выходит за границы товара
+    1. При снятии фильтра "In Stocks" из каталога пропадают все товары.
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Перейти в каталог.
+    2. Снять фильтр "In Stocks".
+  expected-result: |
+    Подгружаются товары, отсутствующие на складе.
+  actual-result: |
+    Каталог очищается. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/7..PNG)
+
+- summary: |
+    2. Не у всех фильтров по производителю есть название
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Перейти в каталог.
+    2. Обратить внимание на блок фильтров по произвоителю
+  expected-result: |
+    У всех производителей есть текст.
+  actual-result: |
+    У фильтра "Прочее"\"Другое" текста нет.    
+
+- summary: |
+    3. Фильтры формируются только по товарам, которые есть на текущей странице
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Перейти в каталог.
+    2. Раскрыть выпадающий список фильтров по категории и производителям - зафиксировать.
+    3. Перейти на следующую страницу.
+    4. Раскрыть выпадающий список фильтров по категории и производителям - зафиксировать.
+  expected-result: |
+    Перечень фильтров совпадает.
+    Все фильтры есть не зависимо от страницы.
+  actual-result: |
+    Фильтры обновляются (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/filters1p.PNG, https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/filters2p.PNG)
+
+- summary: |
+    4. При фильтрации по цене граничные значения не входят в итоговую выборку
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Открыть каталог
+    2. В поле "Цена - ОТ" ввести значение, которое является ценой товара до скидки (например, 1.99 - яблоко)
+    3. В поле "Цена - ДО" ввести значение, которое является ценой товара после скидки (например, 3.99 - сок)
+  expected-result: |
+    Граничные товары входят в выборку 
+  actual-result: |
+    Граничные товары НЕ входят в выборку (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/filter_price.PNG)
+
+- summary: |
+    5. Кликабельная область у товара выходит за границы товара
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -10,9 +62,21 @@
     Границы элементов класса text-decoration-none сопадают с визуальными границами карточки
   actual-result: |
     Границы элементов класса text-decoration-none НЕ сопадают с визуальными границами карточки (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/area.PNG)
+
+- summary: |
+    6. На первой странице каталога есть кнопка "Previous".
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Открыть первую страницу каталога
+  expected-result: |
+    Есть "Next", по клику на которую открывается следующая страница.
+  actual-result: |
+    Есть кнопки "Next" и "Previous".
+    "Previous" кликабельна, но не прогружает никаких элементов (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/5..PNG)
     
 - summary: |
-    2. Не указан путь до иконки с британским флагом в выпадушке для переключения языков
+    7. Не указан путь до иконки с британским флагом в выпадушке для переключения языков
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -24,7 +88,7 @@
     У всех английского языка нет иконки страны - на вкладке Elements для элемента не указан источник загрузки изображения. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/1..PNG, https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/1.1.PNG)
 
 - summary: |
-    3. Для русской и испанской версий отстуствует описание продуктов на нужных языка.
+    8. Для русской и испанской версий отстуствует описание продуктов на нужных языка.
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -37,7 +101,7 @@
     Для испанского языка - результат аналогичный. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/3..PNG)
 
 - summary: |
-    4. Сайт недоступен с выключенным ВНП.
+    9. Сайт недоступен с выключенным ВНП.
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -50,19 +114,98 @@
     Не прогружаются ресурсы по адресам https://products-store.hexlet.app/assets/index-DTdTiOSj.js и https://products-store.hexlet.app/assets/index-Bo-UI-tS.css (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/4.1.PNG)
 
 - summary: |
-    5. На первой странице каталога есть кнопка "Previous".
+    10. В каталоге не отобhажается рейтинг товара
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
-    1. Открыть первую страницу каталога
+    1. Обратить внимание на информацию на странице каталога
   expected-result: |
-    Есть "Next", по клику на которую открывается следующая страница.
+    Есть название, рейтинг, цена со скидкой и без нее.
   actual-result: |
-    Есть кнопки "Next" и "Previous".
-    "Previous" кликабельна, но не прогружает никаких элементов (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/5..PNG)
+    Информация о рейтинге приходит в запросе, но не отображается в каталоге (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/rating1.PNG)
 
 - summary: |
-    6. При переходе из корзины в каталог сайт перезагружается.
+    11. Пользователь не может перейти в категорию товара из карточки по хэштегу
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Перейти в карточку любого товара
+    2. Нажать на хэштег категории
+  expected-result: |
+    Происходит переход в категорию
+  actual-result: |
+    Хэштег кликабелен, однако перехода не происходит
+
+- summary: |
+    12. Если в корзине добавлено несколько товаров, цены не выровнены
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить несколько товаров в корзину любым способом
+    2. Перейти в корзину
+  expected-result: |
+    Все элементы выровнены относительно друг друга
+  actual-result: |
+    Цены не выровнены (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/prices.PNG)
+
+- summary: |
+    13. При оформлении заказа падает 500 ошибка
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить несколько товаров в корзину любым способос
+    2. Перейти в корзину
+    3. Нажать на "Оформить заказ"
+  expected-result: |
+    Оформляется заказ
+  actual-result: |
+    Падает 500 ошибка по ресту https://dummyjson.com/http/500/failed (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/500.PNG)
+       
+- summary: |
+    14. В поповере оформления заказа едет верстка цены
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить несколько товаров в корзину любым способом
+    2. Перейти в корзину
+    3. Нажать на "Оформить заказ"
+  expected-result: |
+    Появляется поповер
+    Информация совпадает с информацией в заказе
+    Все блоки выровнены относительно друг друга
+  actual-result: |
+    Цена не выровнена (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/pp.PNG)
+
+- summary: |
+    15. Отсутствует страница оформления заказа
+  environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить несколько товаров в корзину любым способом
+    2. Перейти в корзину
+    3. Нажать на "Оформить заказ"
+  expected-result: |
+    Открылся поповер заказа.
+    Есть возможность перейти на страницу оформления заказа.
+  actual-result: |
+    Нет возможности перейти на страницу оформления заказа.
+
+- summary: |
+    16. Поповер не закрывается по клику на крестик.
+   environment: |
+    https://products-store.hexlet.app/, v1
+  steps-to-reproduce: |
+    1. Добавить товар в корзину
+    5. Перейти в корзину.
+    3. Нажать на "Checkout" - открылось всплывающее окно
+    4. Нажать на крестик
+  expected-result: |
+    Всплывающее окно закрыто.
+  actual-result: |
+    Кнопка некликабельна (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/11..PNG)   
+
+- summary: |
+    17. При переходе из корзины в каталог сайт перезагружается.
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -75,46 +218,7 @@
     Страница и все элементы перезагружаются. 
 
 - summary: |
-    7. При снятии фильтра "In Stocks" из каталога пропадают все товары.
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Перейти в каталог.
-    2. Снять фильтр "In Stocks".
-  expected-result: |
-    Подгружаются товары, отсутствующие на складе.
-  actual-result: |
-    Каталог очищается. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/7..PNG)
-
-- summary: |
-    8. Не у всех фильтров по производителю есть название
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Перейти в каталог.
-    2. Обратить внимание на блок фильтров по произвоителю
-  expected-result: |
-    У всех производителей есть текст.
-  actual-result: |
-    У фильтра "Прочее"\"Другое" текста нет.    
-
-- summary: |
-    9. Фильтры по категориям формируются только по товарам, которые есть на текущей странице
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Перейти в каталог.
-    2. Раскрыть выпадающий список фильтров по категории - зафиксировать.
-    3. Перейти на следующую страницу.
-    4. Раскрыть выпадающий список фильтров по категории - зафиксировать.
-  expected-result: |
-    Перечень фильтров совпадает.
-    Все категории есть не зависимо от страницы.
-  actual-result: |
-    Категории подтягиваются только в зависимости от товаров на странице. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/8..PNG, https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/8.1.PNG)
-
-- summary: |
-    10. Сайт не адаптирован для мобильных устройств.
+    18. Сайт не адаптирован для мобильных устройств.
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -134,21 +238,7 @@
     Карточки товаров оторваны от элементов управления. (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/10.1.PNG, https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/10.2.PNG)
 
 - summary: |
-    11. Окно оплаты не закрывается по клику на крестик.
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Добавить товар в корзину
-    5. Перейти в корзину.
-    3. Нажать на "Checkout" - открылось всплывающее окно
-    4. Нажать на крестик
-  expected-result: |
-    Всплывающее окно закрыто.
-  actual-result: |
-    Кнопка некликабельна (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/11..PNG)
-
-- summary: |
-    12. Сайт не адаптирован для планшетов.
+    19. Сайт не адаптирован для планшетов.
   environment: |
     https://products-store.hexlet.app/, v1
   steps-to-reproduce: |
@@ -164,91 +254,3 @@
     В ряду 2 товарa.
   actual-result: |
     В каталоге в ряду 1 товар - картинки растянуты (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/tablet.PNG)
-
-- summary: |
-    13. В каталоге не отобhажается рейтинг товара
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Обратить внимание на информацию на странице каталога
-  expected-result: |
-    Есть название, рейтинг, цена со скидкой и без нее.
-  actual-result: |
-    Информация о рейтинге приходит в запросе, но не отображается в каталоге (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/rating1.PNG)
-
-- summary: |
-    14. При загрузке подгружаются сразу все фильры
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Обратить внимание на фильтры на странице каталога
-    2. Перейти на следующую страницу
-  expected-result: |
-    Состав фильтров такой же
-  actual-result: |
-    Фильтры обновляются (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/filters1p.PNG, https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/filters2p.PNG)
-
-- summary: |
-    15. Пользователь может перейти в категорию товара из карточки по хэштегу
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Перейти в карточку любого товара
-    2. Нажать на хэштег категории
-  expected-result: |
-    Происходит переход в категорию
-  actual-result: |
-    Хэштег кликабелен, однако перехода не происходит
-
-- summary: |
-    16. При фильтрации по цене граничные значения не входят в итоговую выборку
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Открыть каталог
-    2. В поле "Цена - ОТ" ввести значение, которое является ценой товара до скидки (например, 1.99 - яблоко)
-    3. В поле "Цена - ДО" ввести значение, которое является ценой товара после скидки (например, 3.99 - сок)
-  expected-result: |
-    Граничные товары входят в выборку 
-  actual-result: |
-    Граничные товары НЕ входят в выборку (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/filter_price.PNG)
-
-- summary: |
-    17. Если в корзине добавлено несколько товаров, цены не выровнены
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Добавить несколько товаров в корзину любым способом
-    2. Перейти в корзину
-  expected-result: |
-    Все элементы выровнены относительно друг друга
-  actual-result: |
-    Цены не выровнены (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/prices.PNG)
-
-- summary: |
-    18. При оформлении заказа падает 500 ошибка
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Добавить несколько товаров в корзину любым способос
-    2. Перейти в корзину
-    3. Нажать на "Оформить заказ"
-  expected-result: |
-    Оформляется заказ
-  actual-result: |
-    Падает 500 ошибка по ресту https://dummyjson.com/http/500/failed (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/500.PNG)
-       
-- summary: |
-    18. В поповере оформления заказа едет верстка цены
-  environment: |
-    https://products-store.hexlet.app/, v1
-  steps-to-reproduce: |
-    1. Добавить несколько товаров в корзину любым способом
-    2. Перейти в корзину
-    3. Нажать на "Оформить заказ"
-  expected-result: |
-    Появляется поповер
-    Информация совпадает с информацией в заказе
-    Все блоки выровнены относительно друг друга
-  actual-result: |
-    Цена не выровнена (https://github.com/Kleria/qa-engineer-project-84/blob/main/picsToBugs/pp.PNG)
